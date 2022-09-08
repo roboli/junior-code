@@ -1,11 +1,11 @@
 #!/bin/sh
 
-for extension in txt js php
+for ext in txt js php
 do
-  directorio="archivos_${extension}"
+  directorio="archivos_${ext}"
   mkdir ./mis_archivos/$directorio
 
-  for i in `ls ./mis_archivos/*.$extension`
+  for i in `ls ./mis_archivos/*.$ext`
   do
     mv $i ./mis_archivos/$directorio
   done
