@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function cambiarColor() {
+        let elemento = document.getElementById('chapulin');
+        elemento.style.color = 'red';
+      }
+
+      function incrementarTexto() {
+        let elementos = document.getElementsByTagName('li');
+        for (let elemento of elementos) {
+          elemento.style.fontSize = '2em';
+        }
+      }
+
+      function resetear() {
+        let elemChapulin = document.getElementById('chapulin');
+        let elemsLi = document.getElementsByTagName('li');
+
+        elemChapulin.style.color = '';
+
+        for (let elemento of elemsLi) {
+          elemento.style.fontSize = '1em';
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Personajes de Chespirito</h1>
+    <ul>
+      <li class="mover">El Chavo</li>
+      <li id="chapulin">Chapulin Colorado</li>
+      <li>Chaparron Bonaparte</li>
+      <li>Chompiras</li>
+    </ul>
+    <input type="button" value="Color (h1)" onclick="cambiarColor();" />
+    <input type="button" value="Incrementar (li)" onclick="incrementarTexto();" />
+    <input type="button" value="Resetear" onclick="resetear();" />
+  </body>
+</html>
