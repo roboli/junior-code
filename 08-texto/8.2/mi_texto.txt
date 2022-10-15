@@ -1,0 +1,4 @@
+Do Re Mi Fa Sol La Si
+C D E F G A B
+Me gusta programar en PHP
+y en JavaScript!
