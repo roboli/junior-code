@@ -36,10 +36,48 @@ class Casa {
   }
 }
 
+class Mansion extends Casa {
+  private $piscinas;
+  private $jardines;
+
+  function setPiscinas($piscinas) {
+    $this->piscinas = $piscinas;
+  }
+
+  function setJardines($jardines) {
+    $this->jardines = $jardines;
+  }
+
+  function getPiscinas() {
+    return $this->piscinas;
+  }
+
+  function getJardines() {
+    return $this->jardines;
+  }
+
+  function imprimir() {
+    parent::imprimir();
+
+    echo('No. Piscinas: ' . $this->piscinas . PHP_EOL);
+    echo('No. Jardines: ' . $this->jardines . PHP_EOL);
+  }
+}
+
 $mi_casa = new Casa();
 $mi_casa->setDireccion('1era calle zona 1');
 $mi_casa->setDormitorios(3);
 $mi_casa->setParqueos(1);
 
 $mi_casa->imprimirCasa();
+
+$mi_mansion = new Mansion();
+$mi_mansion->setDireccion('2da calle zona 10');
+$mi_mansion->setDormitorios(3);
+$mi_mansion->setParqueos(1);
+$mi_mansion->setPiscinas(1);
+$mi_mansion->setJardines(2);
+
+$mi_mansion->imprimir();
+
 ?>
