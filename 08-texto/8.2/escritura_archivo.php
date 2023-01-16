@@ -6,5 +6,5 @@
 
   fclose($mi_texto);
 
-  header("Location: http://localhost/ejercicios/lectura_archivo.php");
+  header("Location: http://localhost/ejemplos/lectura_archivo.php");
 ?>

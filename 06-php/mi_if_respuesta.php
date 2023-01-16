@@ -21,7 +21,7 @@
   <body>
     <?php echo($respuesta); ?>
     <?php if (!$es_correcta): ?>
-    <a href="http://localhost/ejercicios/mi_if_formulario.html" />
+    <a href="http://localhost/ejemplos/mi_if_formulario.html" />
        Regresar
     </a>
     <?php endif; ?>
