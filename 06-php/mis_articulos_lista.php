@@ -26,8 +26,7 @@
     <?php imprimir_articulos($_SESSION['articulos']); ?>
     <a href="mis_articulos.html">Atras</a>
     <form action="mis_articulos_lista.php" method="post">
-      <input type="hidden" name="limpiar" value="limpiar" />
-      <input type="submit" value="Limpiar">
+      <input type="submit" name="limpiar" value="Limpiar" />
     </form>
   </body>
 </html>
