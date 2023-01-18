@@ -91,8 +91,7 @@
     </form>
 
     <form action="mis_articulos_db.php" method="post">
-      <input type="hidden" name="limpiar" value="limpiar" />
-      <input type="submit" value="Limpiar">
+      <input type="submit" name="limpiar" value="Limpiar" />
     </form>
   </body>
 </html>
