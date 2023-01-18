@@ -61,7 +61,7 @@
     limpiar_articulos($conn);
     header('Location: mis_articulos_db.php');
 
-  } else if($_POST['articulo']) {
+  } else if($_POST['agregar']) {
     $nombre = $_POST['articulo'];
     insertar_articulo($conn, $nombre);
     header('Location: mis_articulos_db.php');
@@ -87,7 +87,7 @@
     <form action="mis_articulos_db.php" method="post">
       <label for="articulo">Ingresa un articulo:</label>
       <input type="text" id="articulo" name="articulo" />
-      <input type="submit" value="Agregar">
+      <input type="submit" name="agregar" value="Agregar" />
     </form>
 
     <form action="mis_articulos_db.php" method="post">

@@ -18,7 +18,7 @@
     file_put_contents($archivo_ruta, '');
     header('Location: mis_articulos_permanente.php');
 
-  } else if(isset($_POST['articulo'])) {
+  } else if(isset($_POST['agregar'])) {
     $articulos[] = $_POST['articulo'];
     guardar_archivo($archivo_ruta, $articulos);
 
@@ -57,7 +57,7 @@
     <form action="mis_articulos_permanente.php" method="post">
       <label for="articulo">Ingresa un articulo:</label>
       <input type="text" id="articulo" name="articulo" />
-      <input type="submit" value="Agregar">
+      <input type="submit" name="agregar" value="Agregar" />
     </form>
 
 	<form action="mis_articulos_permanente.php" method="post">
