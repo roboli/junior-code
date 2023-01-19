@@ -22,9 +22,9 @@
     $articulos[] = $_POST['articulo'];
     guardar_archivo($archivo_ruta, $articulos);
 
-  } else if(isset($_POST['indice'])) {
+  } else if(isset($_POST['cambiar'])) {
     $indice = $_POST['indice'];
-    $articulos[$indice] = $_POST["articulo_indice"];
+    $articulos[$indice] = $_POST["articulo"];
     guardar_archivo($archivo_ruta, $articulos);
 
   }
@@ -37,8 +37,8 @@
 
       $form .= '<form action="mis_articulos_permanente.php" method="post">';
       $form .= "<input type=\"hidden\" name=\"indice\" value=\"$i\" />";
-      $form .= "<input type=\"text\" name=\"articulo_indice\" value=\"$array_articulos[$i]\" />";
-      $form .= '<input type="submit" value="Cambiar">';
+      $form .= "<input type=\"text\" name=\"articulo\" value=\"$array_articulos[$i]\" />";
+      $form .= '<input type="submit" name="cambiar" value="Cambiar" />';
       $form .= '</form><br />';
 
       echo($form);
