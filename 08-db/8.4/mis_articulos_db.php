@@ -11,7 +11,7 @@
   }
 
   function seleccionar_articulos($conexion) {
-    $sql = 'SELECT id, nombre, precio FROM lista';
+    $sql = 'SELECT id, nombre FROM lista';
     $resultado = mysqli_query($conexion, $sql);
     return $resultado;
   }
