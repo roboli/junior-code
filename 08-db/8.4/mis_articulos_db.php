@@ -47,7 +47,7 @@
       $form .= '<form action="mis_articulos_db.php" method="post">';
       $form .= '<input type="hidden" name="id" value="' . $articulo['id'] . '" />';
       $form .= '<input type="text" name="nombre" value="' . $articulo['nombre'] . '" />';
-      $form .= '<input type="submit" name="Cambiar" value="Cambiar" />';
+      $form .= '<input type="submit" name="cambiar" value="Cambiar" />';
       $form .= '</form><br />';
 
       echo($form);
