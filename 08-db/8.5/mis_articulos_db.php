@@ -24,8 +24,8 @@
     }
   }
 
-  function insertar_articulo($conexion, $nombre) {
-    $sql = "INSERT INTO lista (nombre) VALUES ('$nombre')";
+  function insertar_articulo($conexion, $nombre, $precio) {
+    $sql = "INSERT INTO lista (nombre, precio) VALUES ('$nombre', '$precio')";
 
     if (!mysqli_query($conexion, $sql)) {
       echo('Error: ' . $sql . '<br>' . mysqli_error($conexion));
@@ -74,8 +74,9 @@
     header('Location: mis_articulos_db.php');
 
   } else if($_POST['agregar']) {
-    $nombre = $_POST['articulo'];
-    insertar_articulo($conn, $nombre);
+    $nombre = $_POST['nombre'];
+    $precio = $_POST['precio'];
+    insertar_articulo($conn, $nombre, $precio);
     header('Location: mis_articulos_db.php');
 
   } else if(isset($_POST['cambiar'])) {
@@ -99,11 +100,12 @@
     <title>Mis Articulos</title>
   </head>
   <body>
-  <?php imprimir_articulos($articulos); ?>
+    <?php imprimir_articulos($articulos); ?>
 
     <form action="mis_articulos_db.php" method="post">
-      <label for="articulo">Ingresa un articulo:</label>
-      <input type="text" id="articulo" name="articulo" />
+      <label for="nombre">Ingresa un articulo:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Nombre" />
+      <input type="text" id="precio" name="precio" placeholder="Precio" />
       <input type="submit" name="agregar" value="Agregar" />
     </form>
 
