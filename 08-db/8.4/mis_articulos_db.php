@@ -55,24 +55,22 @@
   }
 
   $conn = conectar_db('localhost', 'root', '', 'articulos');
-  $articulos = seleccionar_articulos($conn);
 
   if($_POST['limpiar']) {
     limpiar_articulos($conn);
-    header('Location: mis_articulos_db.php');
 
   } else if($_POST['agregar']) {
     $nombre = $_POST['articulo'];
     insertar_articulo($conn, $nombre);
-    header('Location: mis_articulos_db.php');
 
   } else if(isset($_POST['cambiar'])) {
     $id = $_POST['id'];
     $nuevo_nombre = $_POST['nombre'];
     modificar_articulo($conn, $id, $nuevo_nombre);
-    header('Location: mis_articulos_db.php');
 
   }
+
+  $articulos = seleccionar_articulos($conn);
 
 ?>
 
