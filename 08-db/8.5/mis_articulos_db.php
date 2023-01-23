@@ -32,8 +32,8 @@
     }
   }
 
-  function modificar_articulo($conexion, $id, $nombre) {
-    $sql = "UPDATE lista SET nombre = '$nombre' WHERE id = $id";
+  function modificar_articulo($conexion, $id, $nombre, $precio) {
+    $sql = "UPDATE lista SET nombre = '$nombre', precio = $precio WHERE id = $id";
 
     if (!mysqli_query($conexion, $sql)) {
       echo('Error: ' . $sql . '<br>' . mysqli_error($conexion));
@@ -54,7 +54,8 @@
 
       $form .= '<form style="display:inline;" action="mis_articulos_db.php" method="post">';
       $form .= '<input type="hidden" name="id" value="' . $articulo['id'] . '" />';
-      $form .= '<input type="text" name="nombre" value="' . $articulo['nombre'] . '" />';
+      $form .= '<input type="text" name="nombre" placeholder="Nombre" value="' . $articulo['nombre'] . '" />';
+      $form .= '<input type="text" name="precio" placeholder="Precio" value="' . $articulo['precio'] . '" />';
       $form .= '<input type="submit" name="cambiar" value="Cambiar" />';
       $form .= '</form>';
       $form .= '<form style="display:inline;" action="mis_articulos_db.php" method="post">';
@@ -82,7 +83,8 @@
   } else if(isset($_POST['cambiar'])) {
     $id = $_POST['id'];
     $nuevo_nombre = $_POST['nombre'];
-    modificar_articulo($conn, $id, $nuevo_nombre);
+    $nuevo_precio = $_POST['precio'];
+    modificar_articulo($conn, $id, $nuevo_nombre, $nuevo_precio);
     header('Location: mis_articulos_db.php');
 
   } else if(isset($_POST['borrar'])) {
