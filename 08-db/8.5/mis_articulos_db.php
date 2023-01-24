@@ -75,13 +75,23 @@
   } else if($_POST['agregar']) {
     $nombre = $_POST['nombre'];
     $precio = $_POST['precio'];
-    insertar_articulo($conn, $nombre, $precio);
+
+    if(is_numeric($precio)) {
+      insertar_articulo($conn, $nombre, $precio);
+    } else {
+      echo('<p style="color: red"><b>Precio debe ser un valor numerico</b></p>');
+    }
 
   } else if(isset($_POST['cambiar'])) {
     $id = $_POST['id'];
     $nuevo_nombre = $_POST['nombre'];
     $nuevo_precio = $_POST['precio'];
-    modificar_articulo($conn, $id, $nuevo_nombre, $nuevo_precio);
+
+    if(is_numeric($nuevo_precio)) {
+      modificar_articulo($conn, $id, $nuevo_nombre, $nuevo_precio);
+    } else {
+      echo('<p style="color: red"><b>Precio debe ser un valor numerico</b></p>');
+    }
 
   } else if(isset($_POST['borrar'])) {
     $id = $_POST['id'];
