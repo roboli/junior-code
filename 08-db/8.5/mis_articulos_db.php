@@ -25,25 +25,34 @@
   }
 
   function insertar_articulo($conexion, $nombre, $precio) {
-    $sql = "INSERT INTO lista (nombre, precio) VALUES ('$nombre', '$precio')";
+    $sql = "INSERT INTO lista (nombre, precio) VALUES (?, ?)";
 
-    if (!mysqli_query($conexion, $sql)) {
+    $stmt = mysqli_prepare($conexion, $sql);
+    mysqli_stmt_bind_param($stmt, 'sd', $nombre, $precio);
+
+    if (!mysqli_stmt_execute($stmt)) {
       echo('Error: ' . $sql . '<br>' . mysqli_error($conexion));
     }
   }
 
   function modificar_articulo($conexion, $id, $nombre, $precio) {
-    $sql = "UPDATE lista SET nombre = '$nombre', precio = $precio WHERE id = $id";
+    $sql = "UPDATE lista SET nombre = ?, precio = ? WHERE id = ?";
 
-    if (!mysqli_query($conexion, $sql)) {
+    $stmt = mysqli_prepare($conexion, $sql);
+    mysqli_stmt_bind_param($stmt, 'sdi', $nombre, $precio, $id);
+
+    if (!mysqli_stmt_execute($stmt)) {
       echo('Error: ' . $sql . '<br>' . mysqli_error($conexion));
     }
   }
 
   function eliminar_articulo($conexion, $id) {
-    $sql = "DELETE FROM lista WHERE id = $id";
+    $sql = "DELETE FROM lista WHERE id = ?";
 
-    if (!mysqli_query($conexion, $sql)) {
+    $stmt = mysqli_prepare($conexion, $sql);
+    mysqli_stmt_bind_param($stmt, 'i', $id);
+
+    if (!mysqli_stmt_execute($stmt)) {
       echo('Error: ' . $sql . '<br>' . mysqli_error($conexion));
     }
   }
