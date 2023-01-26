@@ -71,6 +71,7 @@
   }
 
   $articulos = seleccionar_articulos($conn);
+  mysqli_close($conn);
 
 ?>
 
