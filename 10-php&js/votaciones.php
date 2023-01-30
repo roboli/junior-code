@@ -1,5 +1,5 @@
 <?php
-  $candidato = $_POST['candidato'];
+  $saga = $_POST['saga'];
 ?>
 
 <!DOCTYPE html>
@@ -7,11 +7,11 @@
   <head>
     <title>Votaciones</title>
   </head>
-  <?php if (empty($candidato)): ?>
+  <?php if (empty($saga)): ?>
   <script>
-    function escogerCandidato() {
+    function escogerSaga() {
       let boton = document.getElementById('votar');
-      let checkbox = document.getElementById('mayor_edad');
+      let checkbox = document.getElementById('leyo_todas');
 
       if (checkbox.checked) {
         boton.removeAttribute('disabled');
@@ -20,20 +20,20 @@
       }
     }
 
-    function aplicarMayorEdad() {
+    function aplicarLeyoTodas() {
       let boton = document.getElementById('votar');
-      let checkbox = document.getElementById('mayor_edad');
-      let radios = document.getElementsByName('candidato');
-      let hayCandidato;
+      let checkbox = document.getElementById('leyo_todas');
+      let radios = document.getElementsByName('saga');
+      let haySaga;
 
       for (var i = 0; i < radios.length; i++) {
         if (radios[i].checked) {
-          hayCandidato = true;
+          haySaga = true;
           break;
         }
       }
 
-      if (checkbox.checked && hayCandidato) {
+      if (checkbox.checked && haySaga) {
         boton.removeAttribute('disabled');
       } else {
         boton.setAttribute('disabled', true);
@@ -42,22 +42,22 @@
   </script>
   <?php endif; ?>
   <body>
-    <?php if (empty($candidato)): ?>
+    <?php if (empty($saga)): ?>
     <form action="votaciones.php" method="post">
       <p>Ingresa tu voto:</p>
-      <input id="dg" type="radio" name="candidato" value="Doroteo Gomez" onclick="escogerCandidato();">
-      <label for="dg">Doroteo Gomez</label><br />
-      <input id="sl" type="radio" name="candidato" value="Susana Lara" onclick="escogerCandidato();">
-      <label for="sl">Susana Lara</label><br />
-      <input id="ma" type="radio" name="candidato" value="Miguel Alonzo" onclick="escogerCandidato();">
-      <label for="ma">Miguel Alonzo</label><br /><br />
-      <input type="checkbox" id="mayor_edad" name="mayor_edad" value="18+" onchange="aplicarMayorEdad();">
-      <label for="mayor_edad"> Confirmo que soy mayor de edad</label><br /><br />
+      <input id="dg" type="radio" name="saga" value="Harry Potter" onclick="escogerSaga();">
+      <label for="dg">Harry Potter</label><br />
+      <input id="sl" type="radio" name="saga" value="Percy Jackson" onclick="escogerSaga();">
+      <label for="sl">Percy Jackson</label><br />
+      <input id="ma" type="radio" name="saga" value="Ender Wigin" onclick="escogerSaga();">
+      <label for="ma">Ender Wigin</label><br /><br />
+      <input type="checkbox" id="leyo_todas" name="leyo_todas" value="leyo_todas" onchange="aplicarLeyoTodas();">
+      <label for="leyo_todas"> Confirmo que lei todas las sagas</label><br /><br />
       <input id="votar" type="submit" value="Votar" disabled="true">
     </form>
     <?php else: ?>
     <h3>Gracias por tu voto.</h3>
-    <p>Tu voto fue recibido: <b><?php echo($candidato) ?></b></p>
+    <p>Votaste por: <b><?php echo($saga) ?></b></p>
     <?php endif; ?>
   </body>
 </html>
