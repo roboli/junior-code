@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Votaciones</title>
+  </head>
+  <script>
+    function escogerSaga() {
+      let boton = document.getElementById('votar');
+      let checkbox = document.getElementById('leyo_todas');
+
+      if (checkbox.checked) {
+        boton.removeAttribute('disabled');
+      } else {
+        boton.setAttribute('disabled', true);
+      }
+    }
+
+    function aplicarLeyoTodas() {
+      let boton = document.getElementById('votar');
+      let checkbox = document.getElementById('leyo_todas');
+      let radios = document.getElementsByName('saga');
+      let haySaga;
+
+      for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+          haySaga = true;
+          break;
+        }
+      }
+
+      if (checkbox.checked && haySaga) {
+        boton.removeAttribute('disabled');
+      } else {
+        boton.setAttribute('disabled', true);
+      }
+    }
+  </script>
+  <body>
+    <form action="resultados.php" method="post">
+      <p>Ingresa tu voto:</p>
+      <input id="dg" type="radio" name="saga" value="Harry Potter" onclick="escogerSaga();">
+      <label for="dg">Harry Potter</label><br />
+      <input id="sl" type="radio" name="saga" value="Percy Jackson" onclick="escogerSaga();">
+      <label for="sl">Percy Jackson</label><br />
+      <input id="ma" type="radio" name="saga" value="Ender Wigin" onclick="escogerSaga();">
+      <label for="ma">Ender Wigin</label><br /><br />
+      <input type="checkbox" id="leyo_todas" name="leyo_todas" value="leyo_todas" onchange="aplicarLeyoTodas();">
+      <label for="leyo_todas"> Confirmo que lei todas las sagas</label><br /><br />
+      <input id="votar" type="submit" value="Votar" disabled="true">
+    </form>
+  </body>
+</html>
