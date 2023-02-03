@@ -1,28 +1,28 @@
 <?php
 require('db.php');
 
-$conn = conectar_db('localhost', 'root', '', 'votaciones');
+  $conn = conectar_db('localhost', 'root', '', 'votaciones');
 
-$voto = $_POST['voto'];
+  $voto = $_POST['voto'];
 
-modificar_votos($conn, $voto);
+  modificar_sagas($conn, $voto);
 
-$saga;
+  $saga;
 
-switch($voto)
-{
-  case 'harry':
-    $saga = 'Harry Potter';
-    break;
+  switch($voto)
+  {
+    case 'harry':
+      $saga = 'Harry Potter';
+      break;
 
-  case 'percy':
-    $saga = 'Percy Jackson';
-    break;
+    case 'percy':
+      $saga = 'Percy Jackson';
+      break;
 
-  case 'ender':
-    $saga = 'Ender Wigin';
-    break;
-}
+    case 'ender':
+      $saga = 'Ender Wigin';
+      break;
+  }
 ?>
 
 <!DOCTYPE html>
