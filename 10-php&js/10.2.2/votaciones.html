@@ -18,7 +18,7 @@
     function aplicarLeyoTodas() {
       let boton = document.getElementById('votar');
       let checkbox = document.getElementById('leyo_todas');
-      let radios = document.getElementsByName('voto');
+      let radios = document.getElementsByName('saga_id');
       let hayVoto;
 
       for (var i = 0; i < radios.length; i++) {
@@ -37,12 +37,12 @@
   </script>
   <body>
     <form action="resultados.php" method="post">
-      <p>Ingresa tu voto:</p>
-      <input id="hp" type="radio" name="voto" value="harry" onclick="escogerSaga();">
+      <p>&iquest;Cual es tu saga favorita&quest;</p>
+      <input id="hp" type="radio" name="saga_id" value="harry" onclick="escogerSaga();">
       <label for="hp">Harry Potter</label><br />
-      <input id="pj" type="radio" name="voto" value="percy" onclick="escogerSaga();">
+      <input id="pj" type="radio" name="saga_id" value="percy" onclick="escogerSaga();">
       <label for="pj">Percy Jackson</label><br />
-      <input id="ew" type="radio" name="voto" value="ender" onclick="escogerSaga();">
+      <input id="ew" type="radio" name="saga_id" value="ender" onclick="escogerSaga();">
       <label for="ew">Ender Wigin</label><br /><br />
       <input type="checkbox" id="leyo_todas" name="leyo_todas" value="leyo_todas" onchange="aplicarLeyoTodas();">
       <label for="leyo_todas"> Confirmo que lei todas las sagas</label><br /><br />

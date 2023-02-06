@@ -3,13 +3,12 @@ require('db.php');
 
   $conn = conectar_db('localhost', 'root', '', 'votaciones');
 
-  $voto = $_POST['voto'];
-
-  modificar_sagas($conn, $voto);
+  $saga_id = $_POST['saga_id'];
+  modificar_sagas($conn, $saga_id);
 
   $saga;
 
-  switch($voto)
+  switch($saga_id)
   {
     case 'harry':
       $saga = 'Harry Potter';
