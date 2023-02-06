@@ -1,5 +1,5 @@
 <?php
-  $voto = $_POST['voto'];
+  $saga = $_POST['saga'];
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@
   <head>
     <title>Votaciones</title>
   </head>
-  <?php if (empty($voto)): ?>
+  <?php if (empty($saga)): ?>
   <script>
     function escogerSaga() {
       let boton = document.getElementById('votar');
@@ -23,7 +23,7 @@
     function aplicarLeyoTodas() {
       let boton = document.getElementById('votar');
       let checkbox = document.getElementById('leyo_todas');
-      let radios = document.getElementsByName('voto');
+      let radios = document.getElementsByName('saga');
       let hayVoto;
 
       for (var i = 0; i < radios.length; i++) {
@@ -42,14 +42,14 @@
   </script>
   <?php endif; ?>
   <body>
-    <?php if (empty($voto)): ?>
+    <?php if (empty($saga)): ?>
     <form action="votaciones.php" method="post">
-      <p>Ingresa tu voto:</p>
-      <input id="hp" type="radio" name="voto" value="Harry Potter" onclick="escogerSaga();">
+      <p>&iquest;Cual es tu saga favorita&quest;</p>
+      <input id="hp" type="radio" name="saga" value="Harry Potter" onclick="escogerSaga();">
       <label for="hp">Harry Potter</label><br />
-      <input id="pj" type="radio" name="voto" value="Percy Jackson" onclick="escogerSaga();">
+      <input id="pj" type="radio" name="saga" value="Percy Jackson" onclick="escogerSaga();">
       <label for="pj">Percy Jackson</label><br />
-      <input id="ew" type="radio" name="voto" value="Ender Wigin" onclick="escogerSaga();">
+      <input id="ew" type="radio" name="saga" value="Ender Wigin" onclick="escogerSaga();">
       <label for="ew">Ender Wigin</label><br /><br />
       <input type="checkbox" id="leyo_todas" name="leyo_todas" value="leyo_todas" onchange="aplicarLeyoTodas();">
       <label for="leyo_todas"> Confirmo que lei todas las sagas</label><br /><br />
@@ -57,7 +57,7 @@
     </form>
     <?php else: ?>
     <h3>Gracias por tu voto.</h3>
-    <p>Votaste por: <b><?php echo($voto) ?></b></p>
+    <p>Votaste por: <b><?php echo($saga) ?></b></p>
     <?php endif; ?>
   </body>
 </html>
