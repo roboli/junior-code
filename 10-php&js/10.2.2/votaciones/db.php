@@ -10,6 +10,12 @@
     return $conx;
   }
 
+  function seleccionar_sagas($conexion) {
+    $sql = 'SELECT id, nombre, votos FROM sagas';
+    $resultado = mysqli_query($conexion, $sql);
+    return $resultado;
+  }
+
   function modificar_sagas($conexion, $id) {
     $sql = "UPDATE sagas SET votos = votos + 1 WHERE id = ?";
 

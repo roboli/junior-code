@@ -22,6 +22,51 @@ require('db.php');
       $saga = 'Ender Wigin';
       break;
   }
+
+  function ordernar_sagas($sagas) {
+    function comparar_votos($a, $b) {
+      if ($b['votos'] < $a['votos']) {
+        return -1;
+      } elseif ($b['votos'] > $a['votos']) {
+        return 1;
+      } else {
+        return 0;
+      }
+    }
+
+    usort($sagas, 'comparar_votos');
+    return $sagas;
+  }
+
+  function imprimir_sagas($array_sagas) {
+    $tabla = '<table>';
+
+    // Columnas
+    $tabla .= '<tr>';
+    $tabla .= '<th></th><th></th>';
+    $tabla .= '</tr>';
+
+    foreach($array_sagas as $saga) {
+      $fila = '<tr>';
+      $fila .= '<td>';
+      $fila .= $saga['nombre'];
+      $fila .= '</td>';
+      $fila .= '<td>';
+      $fila .= $saga['votos'];
+      $fila .= '</td>';
+      $fila .= '</tr>';
+
+      $tabla .= $fila;
+    }
+
+    $tabla .= '</table>';
+
+    echo($tabla);
+  }
+
+  $sagas = seleccionar_sagas($conn);
+  $sagas_ordenadas = ordernar_sagas($sagas->fetch_all(MYSQLI_ASSOC));
+
 ?>
 
 <!DOCTYPE html>
@@ -32,5 +77,7 @@ require('db.php');
   <body>
     <h3>Gracias por tu voto.</h3>
     <p>Votaste por: <b><?php echo($saga) ?></b></p>
+    <p>Resultados:</p>
+    <?php imprimir_sagas($sagas_ordenadas); ?>
   </body>
 </html>
