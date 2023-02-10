@@ -23,19 +23,19 @@ require('db.php');
       break;
   }
 
-  function ordernar_sagas($sagas) {
+  function ordernar_sagas($array_sagas) {
     function comparar_votos($a, $b) {
-      if ($b['votos'] < $a['votos']) {
+      if ($a['votos'] > $b['votos']) {
         return -1;
-      } elseif ($b['votos'] > $a['votos']) {
+      } elseif ($a['votos'] < $b['votos']) {
         return 1;
       } else {
         return 0;
       }
     }
 
-    usort($sagas, 'comparar_votos');
-    return $sagas;
+    usort($array_sagas, 'comparar_votos');
+    return $array_sagas;
   }
 
   function imprimir_sagas($array_sagas) {
