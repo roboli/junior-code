@@ -38,12 +38,12 @@ require('db.php');
     return $array_sagas;
   }
 
-  function imprimir_sagas($array_sagas) {
+  function imprimir_sagas($array_sagas, $total) {
     $tabla = '<table>';
 
     // Columnas
     $tabla .= '<tr>';
-    $tabla .= '<th></th><th></th>';
+    $tabla .= '<th></th><th></th><th></th>';
     $tabla .= '</tr>';
 
     foreach($array_sagas as $saga) {
@@ -53,6 +53,9 @@ require('db.php');
       $fila .= '</td>';
       $fila .= '<td>';
       $fila .= $saga['votos'];
+      $fila .= '</td>';
+      $fila .= '<td>';
+      $fila .= (round($saga['votos'] / $total, 2) * 100) . '%';
       $fila .= '</td>';
       $fila .= '</tr>';
 
@@ -64,8 +67,14 @@ require('db.php');
     echo($tabla);
   }
 
+  function suma_total($acumulado, $s) {
+    $acumulado += $s['votos'];
+    return $acumulado;
+  }
+
   $sagas = seleccionar_sagas($conn);
   $sagas_ordenadas = ordernar_sagas($sagas->fetch_all(MYSQLI_ASSOC));
+  $total_votos = array_reduce($sagas_ordenadas, 'suma_total');
 
 ?>
 
@@ -78,6 +87,6 @@ require('db.php');
     <h3>Gracias por tu voto.</h3>
     <p>Votaste por: <b><?php echo($saga) ?></b></p>
     <p>Resultados:</p>
-    <?php imprimir_sagas($sagas_ordenadas); ?>
+    <?php imprimir_sagas($sagas_ordenadas, $total_votos); ?>
   </body>
 </html>
