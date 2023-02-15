@@ -6,21 +6,9 @@ require('db.php');
   $saga_id = $_POST['saga_id'];
   modificar_sagas($conn, $saga_id);
 
-  $saga;
-
-  switch($saga_id)
-  {
-    case 'harry':
-      $saga = 'Harry Potter';
-      break;
-
-    case 'percy':
-      $saga = 'Percy Jackson';
-      break;
-
-    case 'ender':
-      $saga = 'Ender Wigin';
-      break;
+  function obtener_saga($array_sagas, $id) {
+    $indice = array_search($id, array_column($array_sagas, 'id'));
+    return $array_sagas[$indice];
   }
 
   function ordernar_sagas($array_sagas) {
@@ -75,6 +63,7 @@ require('db.php');
   $sagas = seleccionar_sagas($conn);
   $sagas_ordenadas = ordernar_sagas($sagas->fetch_all(MYSQLI_ASSOC));
   $total_votos = array_reduce($sagas_ordenadas, 'suma_total');
+  $saga = obtener_saga($sagas_ordenadas, $saga_id);
 
 ?>
 
@@ -85,7 +74,7 @@ require('db.php');
   </head>
   <body>
     <h3>Gracias por tu voto.</h3>
-    <p>Votaste por: <b><?php echo($saga) ?></b></p>
+    <p>Votaste por: <b><?php echo($saga['nombre']) ?></b></p>
     <p>Resultados:</p>
     <?php imprimir_sagas($sagas_ordenadas, $total_votos); ?>
   </body>
