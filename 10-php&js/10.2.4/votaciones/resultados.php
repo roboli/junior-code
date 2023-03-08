@@ -129,7 +129,7 @@ require('db.php');
       }
 
       h3 {
-	        color: #1d3557;
+          color: #1d3557;
       }
 
       p, td {
