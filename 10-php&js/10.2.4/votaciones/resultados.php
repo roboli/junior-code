@@ -69,7 +69,7 @@ require('db.php');
       $clase = '.' . $saga['id'] . ' {';
       $clase .= ' width: ' . (round($saga['votos'] / $total, 2) * 100) . '%;';
       $clase .= ' background-color: ' . '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6) . ';';
-      $clase .= ' padding: 10px;';
+      $clase .= ' padding: 10px 0;';
       $clase .= ' text-align: center;';
       $clase .= ' font-size: 0.7em;';
       $clase .= ' color: black;';
