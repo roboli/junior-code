@@ -29,6 +29,7 @@ require('db.php');
   $conn = conectar_db();
 
   $articulos = seleccionar_articulos($conn);
+
   mysqli_close($conn);
 
 ?>

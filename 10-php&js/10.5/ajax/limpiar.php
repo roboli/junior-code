@@ -1,8 +1,6 @@
 <?php
 require('db.php');
 
-  $conn = conectar_db();
-
   function limpiar_articulos($conexion) {
     $sql = 'DELETE FROM lista';
 
@@ -10,6 +8,8 @@ require('db.php');
       echo('Error: ' . $sql . '<br>' . mysqli_error($conexion));
     }
   }
+
+  $conn = conectar_db();
 
   limpiar_articulos($conn);
 

@@ -1,8 +1,6 @@
 <?php
 require('db.php');
 
-  $conn = conectar_db();
-
   function insertar_articulo($conexion, $nombre, $precio) {
     $sql = "INSERT INTO lista (nombre, precio) VALUES (?, ?)";
 
@@ -13,6 +11,8 @@ require('db.php');
       echo('Error: ' . $sql . '<br>' . mysqli_error($conexion));
     }
   }
+
+  $conn = conectar_db();
 
   $nombre = $_POST['nombre'];
   $precio = $_POST['precio'];

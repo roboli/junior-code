@@ -1,8 +1,6 @@
 <?php
 require('db.php');
 
-  $conn = conectar_db();
-
   function eliminar_articulo($conexion, $id) {
     $sql = "DELETE FROM lista WHERE id = ?";
 
@@ -13,6 +11,8 @@ require('db.php');
       echo('Error: ' . $sql . '<br>' . mysqli_error($conexion));
     }
   }
+
+  $conn = conectar_db();
 
   $id = $_POST['id'];
   eliminar_articulo($conn, $id);

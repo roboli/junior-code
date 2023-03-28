@@ -1,8 +1,6 @@
 <?php
 require('db.php');
 
-  $conn = conectar_db();
-
   function modificar_articulo($conexion, $id, $nombre, $precio) {
     $sql = "UPDATE lista SET nombre = ?, precio = ? WHERE id = ?";
 
@@ -13,6 +11,8 @@ require('db.php');
       echo('Error: ' . $sql . '<br>' . mysqli_error($conexion));
     }
   }
+
+  $conn = conectar_db();
 
   $id = $_POST['id'];
   $nuevo_nombre = $_POST['nombre'];
