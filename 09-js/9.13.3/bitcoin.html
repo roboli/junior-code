@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script>
+      async function obtenerBitcoin() {
+        const respuesta = await fetch('https://api.coindesk.com/v1/bpi/currentprice.json');
+        return respuesta.json();
+      }
+
+      async function mostrarBitcoin() {
+        try {
+          const ul = document.getElementById('bitcoin');
+          const respuesta = await obtenerBitcoin();
+          const indice = respuesta.bpi;
+	  let li;
+
+          li = document.createElement('li');
+          li.appendChild(document.createTextNode(`USD: ${indice.USD.rate}`));
+          ul.appendChild(li);
+
+          li = document.createElement('li');
+          li.appendChild(document.createTextNode(`GBP: ${indice.GBP.rate}`));
+          ul.appendChild(li);
+
+          li = document.createElement('li');
+          li.appendChild(document.createTextNode(`EUR: ${indice.EUR.rate}`));
+          ul.appendChild(li);
+
+        } catch(error) {
+          console.error(error);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <p>Una moneda de Bitcoin al dia de hoy vale:</p>
+    <ul id="bitcoin"></ul>
+    <button onclick="mostrarBitcoin();">Obtener</button>
+  </body>
+</html>

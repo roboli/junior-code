@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <script>
+      async function obtenerDestinos() {
+        const respuesta = await fetch('destinos.json');
+        return respuesta.json();
+      }
+
+      async function mostrarDestinos() {
+        try {
+          const ul = document.getElementById('destinos');
+          const respuesta = await obtenerDestinos();
+          const lista = respuesta.destinos;
+
+          lista.forEach((destino) => {
+            const li = document.createElement('li');
+            li.appendChild(document.createTextNode(`${destino.pais}: ${destino.ciudad}`));
+            ul.appendChild(li);
+          });
+        } catch(error) {
+          console.error(error);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <p>Tus destinos favoritos:</p>
+    <ul id="destinos"></ul>
+    <button onclick="mostrarDestinos();">Obtener</button>
+  </body>
+</html>

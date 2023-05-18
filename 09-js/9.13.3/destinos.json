@@ -1,0 +1,12 @@
+{
+  "destinos": [{
+    "ciudad": "Cancun",
+    "pais": "Mexico"
+  }, {
+    "ciudad": "Miami",
+    "pais": "USA"
+  }, {
+    "ciudad": "Paris",
+    "pais": "Francia"
+  }]
+}
