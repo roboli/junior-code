@@ -18,6 +18,30 @@
           background-color: #f1faee;
       }
 
+      .menu {
+          margin: 0 auto;
+          width: 40%;
+          text-align: center;
+      }
+
+      .menu > ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+      }
+
+      .menu > ul > li {
+          display: inline;
+      }
+
+      .menu > ul > li > a {
+          color: green;
+          text-align: center;
+          padding: 15px 18px;
+          text-decoration: none;
+          font-size: 0.8em;
+      }
+
       h1 {
           margin: 0 auto;
           padding-top: 50px;
@@ -77,6 +101,13 @@
   </script>
   <body>
     <h1>Votaciones</h1>
+    <div class="menu">
+      <ul>
+        <li><a href="../mis_sagas_favoritas.html">Inicio</a></li>
+        <li><a href="#">Votaciones</a></li>
+        <li><a href="resultados.php">Resultados</a></li>
+      </ul>
+    </div>
     <form action="resultados.php" method="post">
       <h3>&iquest;Cual es tu saga favorita&quest;</h3>
       <input id="hp" type="radio" name="saga_id" value="harry" onclick="escogerSaga();">

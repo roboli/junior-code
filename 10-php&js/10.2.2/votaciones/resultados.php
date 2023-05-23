@@ -6,9 +6,21 @@ require('db.php');
   $saga_id = $_POST['saga_id'];
   modificar_sagas($conn, $saga_id);
 
-  function obtener_saga($array_sagas, $id) {
-    $indice = array_search($id, array_column($array_sagas, 'id'));
-    return $array_sagas[$indice];
+  $saga;
+
+  switch($saga_id)
+  {
+    case 'harry':
+      $saga = 'Harry Potter';
+      break;
+
+    case 'percy':
+      $saga = 'Percy Jackson';
+      break;
+
+    case 'ender':
+      $saga = 'Ender Wigin';
+      break;
   }
 
   function ordernar_sagas($array_sagas) {
@@ -26,7 +38,7 @@ require('db.php');
     return $array_sagas;
   }
 
-  function imprimir_sagas($array_sagas, $total) {
+  function imprimir_sagas($array_sagas) {
     $tabla = '<table>';
 
     // Columnas
@@ -42,9 +54,6 @@ require('db.php');
       $fila .= '<td>';
       $fila .= $saga['votos'];
       $fila .= '</td>';
-      $fila .= '<td>';
-      $fila .= (round($saga['votos'] / $total, 2) * 100) . '%';
-      $fila .= '</td>';
       $fila .= '</tr>';
 
       $tabla .= $fila;
@@ -55,15 +64,8 @@ require('db.php');
     echo($tabla);
   }
 
-  function suma_total($acumulado, $s) {
-    $acumulado += $s['votos'];
-    return $acumulado;
-  }
-
   $sagas = seleccionar_sagas($conn);
   $sagas_ordenadas = ordernar_sagas($sagas->fetch_all(MYSQLI_ASSOC));
-  $total_votos = array_reduce($sagas_ordenadas, 'suma_total');
-  $saga = obtener_saga($sagas_ordenadas, $saga_id);
 
 ?>
 
@@ -74,8 +76,8 @@ require('db.php');
   </head>
   <body>
     <h3>Gracias por tu voto.</h3>
-    <p>Votaste por: <b><?php echo($saga['nombre']) ?></b></p>
+    <p>Votaste por: <b><?php echo($saga) ?></b></p>
     <p>Resultados:</p>
-    <?php imprimir_sagas($sagas_ordenadas, $total_votos); ?>
+    <?php imprimir_sagas($sagas_ordenadas); ?>
   </body>
 </html>

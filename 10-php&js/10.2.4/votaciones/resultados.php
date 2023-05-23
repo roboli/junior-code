@@ -41,19 +41,15 @@ require('db.php');
 
     foreach($array_sagas as $saga) {
       $fila = '<tr>';
-      $fila .= '<td width="30%">';
+      $fila .= '<td>';
       $fila .= $saga['nombre'];
       $fila .= '</td>';
-      $fila .= '<td width="65%">';
-      $fila .= '<div class="resultado">';
-      $fila .= '<div class="' . $saga['id'] . '">';
-      $fila .= (round($saga['votos'] / $total, 2) * 100) . '%';
-      $fila .= '</div>';
-      $fila .= '</div>';
-      $fila .= '</td>';
-      $fila .= '<td>(';
+      $fila .= '<td>';
       $fila .= $saga['votos'];
-      $fila .= ')</td>';
+      $fila .= '</td>';
+      $fila .= '<td>';
+      $fila .= (round($saga['votos'] / $total, 2) * 100) . '%';
+      $fila .= '</td>';
       $fila .= '</tr>';
 
       $tabla .= $fila;
@@ -62,22 +58,6 @@ require('db.php');
     $tabla .= '</table>';
 
     echo($tabla);
-  }
-
-  function imprimir_sagas_clases($array_sagas, $total) {
-    foreach($array_sagas as $saga) {
-      $clase = '.' . $saga['id'] . ' {';
-      $clase .= ' width: ' . (round($saga['votos'] / $total, 2) * 100) . '%;';
-      $clase .= ' background-color: ' . '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6) . ';';
-      $clase .= ' padding: 10px 0;';
-      $clase .= ' text-align: center;';
-      $clase .= ' font-size: 0.7em;';
-      $clase .= ' color: black;';
-
-      $clase .= ' }' . PHP_EOL;
-
-      echo($clase);
-    }
   }
 
   function suma_total($acumulado, $s) {
@@ -96,69 +76,15 @@ require('db.php');
 <html>
   <head>
     <title>Resultados</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap"
-      rel="stylesheet">
-
-    <style>
-      * {
-      	  font-family: 'Mochiy Pop P One', sans-serif;
-      }
-
-      body {
-          background-color: #f1faee;
-      }
-
-      div.contenido {
-          margin: 0 auto;
-          padding-top: 50px;
-          width: 30%;
-      }
-
-      h1 {
-          margin: 0 auto;
-          padding-top: 50px;
-          width: 30%;
-          border-bottom-style: solid;
-          border-width: 1px;
-          text-align: center;
-          color: #e63946;
-      }
-
-      h3 {
-          color: #1d3557;
-      }
-
-      p, td {
-          color: #457b9d;
-      }
-
-      table {
-          width: 100%;
-      }
-
-      .resultado {
-          width: 100%;
-          background-color: #ddd;
-          padding: 0;
-      }
-
-      <?php imprimir_sagas_clases($sagas_ordenadas, $total_votos); ?>
-    </style>
   </head>
   <body>
-    <h1>Resultados</h1>
-    <div class="contenido">
-      <?php if ($hay_voto): ?>
-      <h3>Ya has votado anteriormente y no puedes hacerlo de nuevo.</h3>
-      <?php else: ?>
-      <h3>Gracias por tu voto.</h3>
-      <?php endif; ?>
-        <p>Votaste por: <b><?php echo($saga['nombre']) ?></b></p>
-      <?php imprimir_sagas($sagas_ordenadas, $total_votos); ?>
-    </div>
+    <?php if ($hay_voto): ?>
+    <h3>Ya has votado anteriormente y no puedes hacerlo de nuevo.</h3>
+    <?php else: ?>
+    <h3>Gracias por tu voto.</h3>
+    <?php endif; ?>
+    <p>Votaste por: <b><?php echo($saga['nombre']) ?></b></p>
+    <p>Resultados:</p>
+    <?php imprimir_sagas($sagas_ordenadas, $total_votos); ?>
   </body>
 </html>

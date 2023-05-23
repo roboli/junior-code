@@ -112,6 +112,30 @@ require('db.php');
           background-color: #f1faee;
       }
 
+      .menu {
+          margin: 0 auto;
+          width: 40%;
+          text-align: center;
+      }
+
+      .menu > ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+      }
+
+      .menu > ul > li {
+          display: inline;
+      }
+
+      .menu > ul > li > a {
+          color: green;
+          text-align: center;
+          padding: 15px 18px;
+          text-decoration: none;
+          font-size: 0.8em;
+      }
+
       div.contenido {
           margin: 0 auto;
           padding-top: 50px;
@@ -151,6 +175,13 @@ require('db.php');
   </head>
   <body>
     <h1>Resultados</h1>
+    <div class="menu">
+      <ul>
+        <li><a href="../mis_sagas_favoritas.html">Inicio</a></li>
+        <li><a href="index.html">Votaciones</a></li>
+        <li><a href="#">Resultados</a></li>
+      </ul>
+    </div>
     <div class="contenido">
       <?php if ($hay_voto): ?>
       <h3>Ya has votado anteriormente y no puedes hacerlo de nuevo.</h3>

@@ -1,15 +1,10 @@
 <?php
 require('db.php');
 
-  session_start();
-
   $conn = conectar_db('localhost', 'root', '', 'votaciones');
 
   $saga_id = $_POST['saga_id'];
-  $hay_voto = existe_voto($conn, session_id());
-  if (!$hay_voto) {
-    insertar_voto($conn, session_id(), $saga_id);
-  }
+  modificar_sagas($conn, $saga_id);
 
   function obtener_saga($array_sagas, $id) {
     $indice = array_search($id, array_column($array_sagas, 'id'));
@@ -78,11 +73,7 @@ require('db.php');
     <title>Resultados</title>
   </head>
   <body>
-    <?php if ($hay_voto): ?>
-    <h3>Ya has votado anteriormente y no puedes hacerlo de nuevo.</h3>
-    <?php else: ?>
     <h3>Gracias por tu voto.</h3>
-    <?php endif; ?>
     <p>Votaste por: <b><?php echo($saga['nombre']) ?></b></p>
     <p>Resultados:</p>
     <?php imprimir_sagas($sagas_ordenadas, $total_votos); ?>
