@@ -24,6 +24,7 @@ require('db.php');
     modificar_articulo($conn, $id, $nuevo_nombre, $nuevo_precio);
     $resultado->resultado = 'okay';
     echo(json_encode($resultado));
+
   } else {
     $resultado->error = 'Precio debe ser un valor numerico';
     echo(json_encode($resultado));
