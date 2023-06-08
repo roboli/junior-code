@@ -58,8 +58,8 @@ async function agregar() {
     body: formData
   });
 
-  const id = await resultado.json();
-  agregarElementoArticulo(id, nombre.value, precio.value);
+  const obj = await resultado.json();
+  agregarElementoArticulo(obj.id, nombre.value, precio.value);
 
   nombre.value = '';
   precio.value = '';
