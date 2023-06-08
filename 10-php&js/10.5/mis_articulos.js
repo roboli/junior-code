@@ -65,18 +65,6 @@ async function agregar() {
   precio.value = '';
 }
 
-async function borrar(id) {
-  const formData = new FormData();
-  formData.append('id', id);
-
-  const resultado = await fetch('eliminar.php', {
-    method: 'POST',
-    body: formData
-  });
-
-  document.getElementById(`articulo_${id}`).remove();
-}
-
 async function cambiar(id) {
   const nombre = document.getElementById(`nombre_${id}`);
   const precio = document.getElementById(`precio_${id}`);
@@ -90,6 +78,18 @@ async function cambiar(id) {
     method: 'POST',
     body: formData
   });  
+}
+
+async function borrar(id) {
+  const formData = new FormData();
+  formData.append('id', id);
+
+  const resultado = await fetch('eliminar.php', {
+    method: 'POST',
+    body: formData
+  });
+
+  document.getElementById(`articulo_${id}`).remove();
 }
 
 async function limpiar() {
