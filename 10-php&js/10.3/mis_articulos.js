@@ -77,7 +77,7 @@ async function cambiar(id) {
   const resultado = await fetch('modificar.php', {
     method: 'POST',
     body: formData
-  });  
+  });
 }
 
 async function borrar(id) {
