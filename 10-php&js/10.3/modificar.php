@@ -23,13 +23,13 @@ require('db.php');
   if(is_numeric($nuevo_precio)) {
     modificar_articulo($conn, $id, $nuevo_nombre, $nuevo_precio);
     $resultado->resultado = 'okay';
-    echo(json_encode($resultado));
 
   } else {
     $resultado->error = 'Precio debe ser un valor numerico';
-    echo(json_encode($resultado));
 
   }
+
+   echo(json_encode($resultado));
 
   mysqli_close($conn);
 

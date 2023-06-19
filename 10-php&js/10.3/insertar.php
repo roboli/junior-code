@@ -22,13 +22,13 @@ require('db.php');
   if(is_numeric($precio)) {
     insertar_articulo($conn, $nombre, $precio);
     $resultado->id = mysqli_insert_id($conn);
-    echo(json_encode($resultado));
 
   } else {
     $resultado->error = 'Precio debe ser un valor numerico';
-    echo(json_encode($resultado));
 
   }
+
+  echo(json_encode($resultado));
 
   mysqli_close($conn);
 
