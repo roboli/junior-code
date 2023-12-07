@@ -15,10 +15,10 @@ require('db.php');
       $form .= '<div style="display:inline;">';
       $form .= '<input type="text" id="nombre_' . $articulo['id'] . '" placeholder="Nombre" value="' . $articulo['nombre'] . '" />';
       $form .= '<input type="text" id="precio_' . $articulo['id'] . '" placeholder="Precio" value="' . $articulo['precio'] . '" />';
-      $form .= '<input type="submit" name="cambiar" value="Cambiar" onclick="cambiar(\'' . $articulo['id'] . '\');" />';
+      $form .= '<input type="button" name="cambiar" value="Cambiar" onclick="cambiar(\'' . $articulo['id'] . '\');" />';
       $form .= '</div>';
       $form .= '<div style="display:inline;">';
-      $form .= '<input type="submit" name="borrar" value="Borrar" onclick="borrar(\'' . $articulo['id'] . '\');" />';
+      $form .= '<input type="button" name="borrar" value="Borrar" onclick="borrar(\'' . $articulo['id'] . '\');" />';
       $form .= '</div>';
       $form .= '</div>';
 
