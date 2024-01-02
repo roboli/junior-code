@@ -1,6 +1,6 @@
 # Junior PHP & JavaScript
 
-Bienvenidos al repositorio con el código para los ejemplos de mi libro [Junior PHP & JavaScript: Aprende los fundamentos para una carrera exitosa programando en la web](https://a.co/d/7FJZCVk).
+Bienvenidos al repositorio con los ejemplos de mi libro [Junior PHP & JavaScript: Aprende los fundamentos para una carrera exitosa programando en la web](https://a.co/d/7FJZCVk).
 
 No es necesario que sepas usar `git` para poder utilizar el código de los ejemplos, basta con dirigirte al directorio deseado, abrir el archivo y hacer un copy/paste.
 
