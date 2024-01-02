@@ -1,0 +1,8 @@
+* Votaciones: [Inicio](./10.2.1)
+* Votaciones: [Conteo](./10.2.2)
+* Votaciones: [Porcentajes](./10.2.3)
+* Votaciones: [Conteo Justo](./10.2.4)
+* Votaciones: [Embellecimiento](./10.2.5)
+* Votaciones: [Anexión](./10.2.6)
+* Mis Articulos: [Ajax](./10.3.5)
+* Mis Articulos: [Errores](./10.3.6)
