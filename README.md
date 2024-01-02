@@ -14,4 +14,4 @@ Pero si deseas tener una copia de este repositorio, puedes clonarlo y accesarlo 
 * Capitulo 7: [Archivos de Texto](./07-texto)
 * Capitulo 8: [Introducción a Bases de Datos](./08-db)
 * Capitulo 9: [Programación con JavaScript](./09-js)
-* Capitulo 10: [PHP y JavaScript](./10-php&hs)
+* Capitulo 10: [PHP y JavaScript](./10-php&js)
