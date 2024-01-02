@@ -7,5 +7,5 @@
 * Async: [Callbacks](./9.12.1)
 * Async: [Promesas](./9.12.2)
 * Async: [Async/Await](./9.12.3)
-* Llamadas HTTP: [XMLHttpRequest](/9.13.2)
-* Llamadas HTTP: [Fetch](/9.13.2)
+* Llamadas HTTP: [XMLHttpRequest](./9.13.2)
+* Llamadas HTTP: [Fetch](./9.13.3)
